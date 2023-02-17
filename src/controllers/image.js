@@ -42,7 +42,6 @@ ctrl.create = (req, res) => {
     const imageSaved = await newImg.save()
     res.redirect('/')
   } else {
-    await fs.unlink(imageTempPath)
     res.status(500).json({error: 'que poronga intentas subir pelotudo'})
   }
   }}
