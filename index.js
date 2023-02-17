@@ -1,10 +1,10 @@
 require('dotenv').config()
 const express = require('express')
-const config = require('./server/config.js')
+const config = require('./src/server/config.js')
 
 const app = config(express())
 
-require('./database')
+require('./src/database')
 
 app.listen(app.get('port'), ()=>{
   console.log('Server on port ', app.get('port'))
