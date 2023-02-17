@@ -1,29 +1,47 @@
 const { Promise } = require('mongoose');
 const { image, Comment } = require('../models')
 
-  async function  imageCounter() {
+async function imageCounter() {
   return await image.countDocuments();
-  }
+}
 
-  async function commentsCounter() {
+async function commentsCounter() {
   return await Comment.countDocuments();
-  }
+}
 
-  async function imageTotalViewsCounter() {
-    const result = await image.aggregate([{$group: {
-      _id: '1',
-      viewsTotal: {$sum: '$views'}
-    }}])
-    return result[0].viewsTotal
+async function imageTotalViewsCounter() {
+  const result = await image.aggregate([
+    {
+      $group: {
+        _id: "1",
+        viewsTotal: { $sum: "$views" },
+      },
+    },
+  ]);
+  let viewsTotal = 0;
+  if (result.length > 0) {
+    viewsTotal += result[0].viewsTotal;
   }
+  return viewsTotal;
+}
 
-  async function LikesTotalCounter() {
-    const result = await image.aggregate([{$group: {
-      _id: '1',
-      likesTotal: {$sum: '$likes'}
-    }}])
-    return result[0].likesTotal
+async function LikesTotalCounter() {
+  const result = await image.aggregate([
+    {
+      $group: {
+        _id: "1",
+        likesTotal: { $sum: "$likes" },
+      },
+    },
+  ]);
+
+  let likesTotal = 0;
+  if (result.length > 0) {
+    likesTotal += result[0].likesTotal;
   }
+  return likesTotal;
+}
+
 
 module.exports = async () => {
 
