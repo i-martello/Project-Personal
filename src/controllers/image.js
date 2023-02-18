@@ -49,21 +49,24 @@ ctrl.create = (req, res) => {
 };
 
 ctrl.like = async (req, res) => {
-  const Image = await image.findOne({filename: {$regex: req.params.image_id }}) 
-  if(Image){
-    Image.likes = Image.likes + 1
-    await Image.save()
-    res.json({likes: Image.likes})
+  console.log(req)
+  const imagen = await image.findOne({filename: {$regex: req.params.image_id }})
+  if(imagen){
+    imagen.likes = imagen.likes + 1
+    await imagen.save()
+    res.json({likes: imagen.likes})
   } else {
     res.status(500).json({error: 'Error interno brother'})
   }
 }
 
 ctrl.comment = async (req, res) => {
+
   const imgComment =  await image.findOne({
     filename: { $regex: req.params.image_id },
   });
   if(imgComment){
+    console.log('hola')
     const newComment = new Comment({
       name: req.body.name,
       comment: req.body.comment,
@@ -71,7 +74,6 @@ ctrl.comment = async (req, res) => {
       image: Object
     });
     newComment.image_id = imgComment._id
-    console.log(newComment)
     await newComment.save()
     res.redirect('/images/' + imgComment.uniqueId)
   } else {
