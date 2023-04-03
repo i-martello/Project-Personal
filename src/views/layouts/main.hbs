@@ -13,20 +13,12 @@
 </head>
 <body>
 
-  {{>navigation}}
-  <div class="container p-4">
-    <div class="row">
-      <div class="col-md-8">
-            {{{body}}}
-      </div>
-      <div class="col-md-4">
-        {{>stats}}
-        {{>popular}}
-        {{>comments}}
-      </div>
-    </div>
+{{>navigation}}
+<div>
 
-  </div>
+  {{{body}}}
+  
+</div>
 <script src="https://kit.fontawesome.com/904d9661c3.js" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
 <script src="/public/js/scripts.js"></script>

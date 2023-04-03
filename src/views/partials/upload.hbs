@@ -1,0 +1,37 @@
+<form action="/images" method="POST" enctype="multipart/form-data">  
+<div class="publicar bg-white p-5">
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Publica una Imagen!</label>
+    <input
+      name="image"
+      type="file"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="name@example.com"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Titulo</label>
+    <input
+      type="text"
+      name="title"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="Agregale un titulo a tu imagen"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
+    <textarea
+      name="description"
+      class="form-control"
+      id="exampleFormControlTextarea1"
+      rows="3"
+      placeholder="¡Describí tu foto!"
+    ></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Publicar</button>
+
+</div>
+
+</form>
