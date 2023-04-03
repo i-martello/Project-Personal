@@ -1,7 +1,6 @@
 body {
-  background: url('https://wallpaper-house.com/data/out/7/wallpaper2you_151772.jpg');
+  background-image: url("../../public/img/fondopagina.jpg");
 }
-
 .logo-img {
   width: 5%;
 }
@@ -12,4 +11,5 @@ body {
   width: 60px;
 
 }
+
 

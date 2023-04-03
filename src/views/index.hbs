@@ -1,48 +1,64 @@
 <div class="card">
-  <div class="card-header bg-dark">
+  <div class="card-header bg-black">
     <h3 class="card-title text-white">
-      <i class="far fa-image"></i> Subí una foto cagon</h3>
+      <i class="far fa-image"></i>
+      Publica una foto!</h3>
   </div>
   <div class="card-body">
     <form action="/images" method="POST" enctype="multipart/form-data">
-      <div class="form-group">
-        <div class="input-group">
-          <div class="custom-file">
-            <input type="file" name="image" class="custom-file-input" id="inputGroup" aria-describedby="inputGroupFileAddon" required>
-          </div>
-        </div>
+      <legend>Publicá una imagen!</legend>
+      <div class="custom-file">
+        <input
+          type="file"
+          name="image"
+          class="custom-file-input"
+          id="inputGroup"
+          aria-describedby="inputGroupFileAddon"
+          required
+        />
       </div>
-      <br>
-      <div class="form-group">
-        <input type="text" name="title" class="form-control" placeholder="Ponele titulo boludón" required>
+      <div class="mb-3">
+        <label for="disabledTextInput" class="form-label">Titulo</label>
+        <input
+          name="title"
+          type="text"
+          class="form-control"
+          placeholder="Titulo de la imagen"
+          required
+        />
       </div>
-      <br>
-      <div class="form-group">
-        <textarea name="description" rows="2" class="form-control" placeholder="No te olvides de la descripcion zapallo" required></textarea>
+      <div class="mb-3">
+        <label for="disabledTextInput" class="form-label">Descripción</label>
+        <input
+          name="description"
+          type="text"
+          class="form-control"
+          placeholder="Descripción"
+          required
+        />
       </div>
-      <br>
-      <div class="form-group"></div>
-      <button class="btn btn-success">
-        <i class="fa fa-upload"></i> Publicar
-      </button>
+      <button type="submit" class="btn btn-primary">Publicar</button>
     </form>
   </div>
 </div>
 
 <div class="card mt-2">
-  <div class="card-header bg-dark text-white">
+  <div class="card-header bg-black text-white">
     <h3> <i class="far fa-images"></i> Subidas recientes</h3>
   </div>
   <div class="card-body">
     <div class="row">
-    {{#each images}}
-      <div class="card-md-4">
+      {{#each images}}
+        <div class="card-md-4">
           <a href="/images/{{uniqueId}}">
-            <img src="/public/upload/{{filename}}" alt="" class="w-100 h-100 img-thumbnail">
+            <img
+              src="/public/upload/{{filename}}"
+              alt=""
+              class="w-100 h-100 img-thumbnail"
+            />
           </a>
-      </div>
-    {{/each}}
+        </div>
+      {{/each}}
     </div>
   </div>
 </div>
-
